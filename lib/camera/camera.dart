@@ -30,7 +30,6 @@ class _CameraExampleState extends State<CameraExample> {
     var result2 = result[0];
     var _title = result2["title"];
     var _memo = result2["memo"];
-
     var compressedImage = await AppHelper.compress(image: File(imageXFile!.path));
 
     setState(() {
@@ -127,9 +126,7 @@ class _CameraExampleState extends State<CameraExample> {
 
   void uploadImage() async {
     var image = _image;
-
-
-    var uri = Uri.parse('http://172.30.1.70:8080/upload');
+    var uri = Uri.parse('http://localhost:8080/upload');
     var request = http.MultipartRequest("POST", uri);
 
     request.fields["title"] = title;
